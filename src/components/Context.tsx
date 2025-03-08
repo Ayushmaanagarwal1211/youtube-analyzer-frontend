@@ -26,7 +26,7 @@ const YoutubeContext: React.FC<YoutubeContextProps> = ({ children }) => {
     const comments = []
     let lastIndex = 0
     try {
-        const response = await fetch(`http://localhost:5000/youtube/comments/${params.url}`);
+        const response = await fetch(`https://youtube-analyzer-backend-12.onrender.com/youtube/comments/${params.url}`);
 
         if (!response.body) {
             throw new Error('No response body');
