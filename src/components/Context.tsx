@@ -52,7 +52,7 @@ const YoutubeContext: React.FC<YoutubeContextProps> = ({ children }) => {
 
              // ✅ Improved JSON extraction logic
     const jsonMatches = partialData.match(/\{.*?\}/g); // Extracts full JSON objects
-    if (jsonMatches) {
+    if (jsonMatches && jsonMatches instanceof Array) {
         jsonMatches.forEach((chunk) => {
             try {
                 const parsedData = JSON.parse(chunk);
