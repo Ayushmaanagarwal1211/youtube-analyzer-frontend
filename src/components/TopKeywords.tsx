@@ -16,7 +16,7 @@ const TopKeywords: React.FC = () => {
     throw new Error("Context not found. Make sure your Provider wraps this component.");
   }
   const { comments } = context;  const keywordCounts: Record<string, number> = {};
-
+    if(comments instanceof Array){
   comments.forEach((comment : any) => {
     comment.comment.split(' ').forEach((word : string) => {
       if (!commonWords.has(word) && word.length > 5 && /^[a-zA-Z]+$/.test(word)) {  
@@ -24,6 +24,7 @@ const TopKeywords: React.FC = () => {
       }
     });
   });
+    }
 
   let arr: [string, number][] = [];
   for (let word in keywordCounts) {
