@@ -10,7 +10,7 @@ const SentimentDistribution: React.FC = () => {
         "neutral": 0
     };
 
-    if (sentiments) {
+    if (sentiments && sentiments instanceof Array) {
         sentiments.forEach(sentiment => {
             const key = sentiment.toLowerCase();
             if (distribution.hasOwnProperty(key)) {
